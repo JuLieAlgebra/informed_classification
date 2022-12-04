@@ -39,7 +39,7 @@ class NominalModel(GenerativeModel):
 
     def cov(self, t1: float, t2: float) -> float:
         """computes the covariance of t1, t2"""
-        return 0.01*np.exp(-(t1-t2)**2 / 8)
+        return 0.01*np.exp(-(t1-t2)**2 / 8) + (0.1 if t1 == t2 else 0.0)
 
     def p(self, x: np.array) -> float:
         """probability density at x"""
@@ -67,7 +67,7 @@ class DisruptedModel(GenerativeModel):
 
     def cov(self, t1: float, t2: float) -> float:
         """computes the covariance of t1, t2"""
-        return 0.01*np.exp(-(t1-t2)**2 / 8)
+        return 0.01*np.exp(-(t1-t2)**2 / 8) + (0.1 if t1 == t2 else 0.0)
 
     def p(self, x: np.array) -> float:
         """probability density at x"""
