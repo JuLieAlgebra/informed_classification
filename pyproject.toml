@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "Informed Classification"
+version = "0.1.0"
+description = "Collection of experiments in informed ml/scientific machine learning"
+authors = ["VeggieBaconator <julieannabacon2014@gmail.com>"]
+readme = "README.md"
+packages = [{include = "informed_toys"}]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+numpy = "^1.23.5"
+scipy = "^1.9.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
