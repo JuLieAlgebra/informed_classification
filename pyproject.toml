@@ -2,7 +2,7 @@
 name = "Informed Classification"
 version = "0.1.0"
 description = "Collection of experiments in informed ml/scientific machine learning"
-authors = ["VeggieBaconator <julieannabacon2014@gmail.com>"]
+authors = ["Julieanna Bacon <juliealgebra@gmail.com>"]
 readme = "README.md"
 packages = [{include = "informed_classification"}]
 
