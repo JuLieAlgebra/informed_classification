@@ -18,7 +18,7 @@ class BayesClassifier:
         return self.classes[MAP]
 
     def posterior(self, x: np.array) -> List[float]:
-        """Computes the posterior"""
+        """Computes the posteriors for each class"""
         evidence = self.evidence(x)
         return [self.joint(c, x)/evidence for c in self.classes]
 
@@ -40,6 +40,6 @@ if __name__ == '__main__':
     nominal = NominalModel(d)
     disrupted = DisruptedModel(d)
     b = BayesClassifier([0.5, 0.5], [nominal, disrupted])
-    posterior = b.posterior(disrupted.sample(1))
+    posterior = b.posterior(np.zeros(nominal.dim))
     assert np.isclose(np.sum(posterior), 1.0)
     print(posterior)

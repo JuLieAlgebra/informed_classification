@@ -11,8 +11,9 @@ from informed_classification import generative_models
 def data() -> List[Tuple[float, generative_models.GenerativeModel]]:
     """Produces test data for testing the generative models"""
     dim = 10
-    models = [generative_models.DisruptedModel(dim),
-              generative_models.NominalModel(dim),
+    models = [
+                generative_models.DisruptedModel(dim),
+                generative_models.NominalModel(dim),
              ]
     test_data = [(model.sample(1), model) for model in models]
     return test_data
