@@ -6,6 +6,7 @@ from generative_models import NominalModel, DisruptedModel, GenerativeModel
 
 class BayesClassifier:
     """Gives MAP and posterior"""
+
     def __init__(self, prior: List[float], classes: List[GenerativeModel]):
         # prior is p(c)
         assert np.isclose(np.sum(prior), 1.0)
@@ -20,7 +21,7 @@ class BayesClassifier:
     def posterior(self, x: np.array) -> List[float]:
         """Computes the posteriors for each class"""
         evidence = self.evidence(x)
-        return [self.joint(c, x)/evidence for c in self.classes]
+        return [self.joint(c, x) / evidence for c in self.classes]
 
     def evidence(self, x: np.array) -> float:
         """Computes the denominator of Bayes rule, p(x)"""
@@ -32,10 +33,10 @@ class BayesClassifier:
 
     def joint(self, c: GenerativeModel, x: np.array) -> float:
         """Computes the posterior numerator (before normalization)"""
-        return self.likelihood(c, x)*self.prior[c]
+        return self.likelihood(c, x) * self.prior[c]
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     d = 100
     nominal = NominalModel(d)
     disrupted = DisruptedModel(d)
